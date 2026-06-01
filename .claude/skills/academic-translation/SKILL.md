@@ -1,199 +1,225 @@
 ---
+name: academic-translation
+description: "Use this skill when the user wants to strictly translate academic papers paragraph by paragraph. This skill focuses on faithful, accurate, paragraph-by-paragraph translation while maintaining terminology consistency, preserving formulas, citations, figure/table numbers, and technical acronyms. Follow the root CLAUDE.md for all output paths and file rules."
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-name: session-note
-description: "Use this skill when the user wants to turn an AI interaction, debugging process, environment setup, tool installation, configuration process, or troubleshooting session into a concise reusable Markdown note. This skill extracts symptoms, errors, causes, failed attempts, final solution, verification steps, and lessons learned. Follow the root CLAUDE.md for all output paths and file rules."
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Academic Translation Skill
 
-# Session Note Skill
-
-This skill is for converting an AI-assisted interaction process into a concise, reusable technical note.
+This skill is for strict academic translation of papers, sections, or paragraphs.
 
 Use this skill when the user asks to:
 
-* 整理刚才的对话过程
-* 总结一次 bug 排查过程
-* 记录一次环境配置过程
-* 记录一个 GitHub 项目的安装配置过程
-* 整理一次工具安装、模型接入、插件配置或系统调试过程
-* 将多轮 AI 交互提炼成可复用文档
-* 生成排错笔记、配置笔记、踩坑记录或操作备忘
+* 翻译一篇论文
+* 翻译论文的某个章节
+* 继续翻译某篇论文的后续章节
+* 维护术语表
+* 补充翻译笔记说明
+* 翻译 Abstract / Introduction / Method / Experiments / Conclusion
 
 Examples:
 
-* “把刚才解决这个 bug 的过程整理成笔记”
-* “把安装 paper-search-mcp 的过程整理一下”
-* “把这次配置 Claude Code + DeepSeek 的过程写成可复用文档”
-* “帮我把刚才的环境配置过程提炼成一篇 troubleshooting note”
+* "请翻译这篇论文的 Abstract 和 Introduction"
+* "逐段翻译 ./papers/vla/openvla.pdf"
+* "继续翻译 Method 部分，复用已有术语表"
+* "帮我翻译下面这段论文段落，保持学术表达"
 
 ## Output Rule
 
-Before creating or modifying any file, follow the project file layout, file creation rules, append rules, and final response rules defined in the root `CLAUDE.md`.
+Before creating or modifying any file, follow the project file layout, append rules, and final response rules defined in the root `CLAUDE.md`.
 
 Do not define independent output paths inside this skill.
 
 If this skill conflicts with `CLAUDE.md`, follow `CLAUDE.md` unless the user explicitly specifies another path.
 
-Create only the files needed for the current note. Do not pre-create empty files.
+Create only the files needed for the current translation task. Do not pre-create empty files.
 
 ## Core Principles
 
-1. Do not record the full conversation transcript by default.
-2. Extract reusable knowledge, not every interaction detail.
-3. Focus on symptoms, evidence, cause, solution, and verification.
-4. Preserve exact error messages, commands, paths, versions, and configuration snippets when useful.
-5. Clearly distinguish confirmed causes from guesses.
-6. Do not include sensitive information such as API keys, tokens, passwords, private URLs, or personal secrets.
-7. Do not claim a cause was confirmed unless there was evidence.
-8. If the conversation context is incomplete, state what is missing.
-9. Use Chinese unless the user asks otherwise.
-10. Keep the final note concise and practical.
+1. Translate faithfully and accurately, paragraph by paragraph.
+2. Preserve all formulas, citations, figure numbers, and table numbers exactly as in the original.
+3. Maintain terminology consistency across all translated sections of the same paper.
+4. Keep standard English technical terms when appropriate: method names, model names, dataset names, benchmark names, and technical acronyms.
+5. Do not add interpretation, commentary, or analysis — translation only.
+6. Mark uncertain translations explicitly with a note.
+7. If the source text is ambiguous, preserve the ambiguity rather than guessing.
+8. Preserve the original paragraph structure unless reflow is necessary for readability.
+9. Use Chinese for the translated body text unless the user asks otherwise.
 
 ## Workflow
 
-### Step 1: Identify the session topic
+### Step 1: Identify the paper and translation scope
 
-Infer or ask for:
+Identify:
 
-* what problem or task this session was about
-* what system, tool, project, or environment was involved
-* whether the user wants a bug note, setup note, installation note, or general session summary
-* whether the note should be brief or detailed
+* paper title or identifier
+* source material (PDF file path, pasted text, or existing translation)
+* target sections (Abstract, Introduction, Method, Experiments, etc.)
+* whether this is a new translation or a continuation
 
-If the topic is clear, proceed directly.
+If the paper has an existing terminology table, locate and load it.
 
-If unclear, ask one concise clarification question or choose a reasonable title and mention it.
+If this is a continuation, locate the existing `translation.md` to append to.
 
-### Step 2: Extract key facts
+### Step 2: Inspect source material
 
-Extract only useful facts from the interaction:
+Determine what is available:
 
-* goal or background
-* environment information
-* commands used
-* configuration files changed
-* error messages
-* observed symptoms
-* attempted solutions
-* failed attempts and why they failed
-* final working solution
-* verification steps
-* remaining risks or unresolved issues
+* full paper PDF
+* extracted paper text
+* user-pasted paragraphs
 
-Do not include irrelevant conversation turns.
+If the source is a PDF, extract the relevant sections before translating.
 
-### Step 3: Analyze the root cause
+If only partial text is available, clearly state which sections are being translated.
 
-Explain the root cause using evidence from the session.
+### Step 3: Establish or load the terminology table
 
-Use cautious wording:
+Before translating, identify key technical terms and decide on Chinese translations.
 
-* “最终判断原因是……”
-* “证据包括……”
-* “这个原因较可能，但仍需……验证”
-* “此前尝试失败是因为……”
+If a terminology table already exists at:
 
-Do not invent missing evidence.
+```
+./note/papers/<paper-slug>/terminology.md
+```
 
-### Step 4: Write the note
+load and reuse it.
 
-Use a structure suitable for the session type.
+If this is a new paper, create a new terminology table and save it to the above path.
 
-Default structure:
+The terminology table should include:
+
+| English Term | Chinese Translation | Notes |
+|---|---|---|
+| ... | ... | ... |
+
+Preserve English for: method names, model names, dataset names, benchmark names, and widely-used technical acronyms.
+
+### Step 4: Translate paragraph by paragraph
+
+For each paragraph:
+
+1. Show or reference the original paragraph.
+2. Provide the Chinese translation.
+3. Keep formulas, citations, figure/table numbers unchanged.
+4. Use consistent terminology from the terminology table.
+
+Format each translated section clearly so the user can align original and translation.
+
+If a term is newly encountered and not in the table, add it.
+
+### Step 5: Handle formulas and technical notation
+
+* Preserve all LaTeX formulas exactly.
+* Keep mathematical notation, variable names, and equation numbering unchanged.
+* Explain notation changes only if essential in a `translation-notes.md`.
+
+### Step 6: Handle citations, figures, and tables
+
+* Preserve citation keys and reference numbers exactly.
+* Preserve figure numbers, table numbers, and their captions.
+* Do not translate URLs or DOIs.
+
+### Step 7: Append to existing translation
+
+For the same paper, always append new sections to:
+
+```
+./note/papers/<paper-slug>/translation.md
+```
+
+Do not create separate files for different sections unless the user explicitly asks.
+
+Before appending, insert a clear separator:
 
 ```markdown
-# <Session Title>
+---
 
-## 1. Background / Goal
+# Translation Batch: <section-or-range>
 
-## 2. Problem Symptoms
+Source: <paper path, section name, page range, or pasted text>
 
-## 3. Environment
-
-## 4. Error Messages
-
-## 5. Investigation Process
-
-## 6. Root Cause
-
-## 7. Final Solution
-
-## 8. Verification
-
-## 9. Reusable Commands / Config
-
-## 10. Lessons Learned
-
-## 11. Follow-up Tasks
+---
 ```
 
-For simple cases, use a shorter structure:
+### Step 8: Update the terminology table
+
+After each translation batch, update `./note/papers/<paper-slug>/terminology.md` with any new terms encountered.
+
+### Step 9: Optionally write translation notes
+
+If there are noteworthy translation decisions, ambiguities, or difficult passages, write them to `./note/papers/<paper-slug>/translation-notes.md`.
+
+This is optional — only create when useful.
+
+## Recommended Translation Output Structure
+
+For a new paper translation, `translation.md` should follow this structure:
 
 ```markdown
-# <Session Title>
+# Translation: <Paper Title>
 
-## Problem
+---
 
-## Cause
+# Translation Batch: Abstract
 
-## Solution
+Source: <paper path, section Abstract>
 
-## Verification
+---
 
-## Notes
+<translated content>
+
+---
+
+# Translation Batch: Introduction
+
+Source: <paper path, section Introduction>
+
+---
+
+<translated content>
+
+---
 ```
 
-### Step 5: Handle commands and configuration
+For terminology table:
 
-When including commands or config snippets:
+```markdown
+# Terminology: <Paper Title>
 
-* keep them minimal
-* remove secrets
-* mark placeholders clearly
-* prefer reproducible commands
-* explain where each command should be run
-
-Examples:
-
-```bash
-node -v
-which node
-which claude
+| English Term | Chinese Translation | Notes |
+|---|---|---|
+| ... | ... | ... |
 ```
 
-```json
-{
-  "claudeCode.useTerminal": true
-}
-```
-
-### Step 6: Sanitize sensitive content
-
-Before saving, remove or mask:
-
-* API keys
-* access tokens
-* passwords
-* private SSH keys
-* personal account secrets
-* private service URLs if sensitive
-
-Use placeholders such as:
-
-```text
-<API_KEY>
-<TOKEN>
-<PRIVATE_PATH>
-```
-
-### Step 7: Final check
+## Quality Requirements
 
 Before finishing, ensure that:
 
-* the note is not a raw transcript
-* problem, cause, solution, and verification are clear
-* failed attempts are summarized only when useful
-* commands and config snippets are reusable
-* sensitive information is removed
-* uncertain conclusions are marked
-* output paths and file behavior follow the root `CLAUDE.md`
+* the translation is faithful and accurate
+* terminology is consistent with the existing table
+* formulas, citations, figure/table numbers are preserved exactly
+* no interpretation or commentary has been mixed into the translation
+* uncertain translations are marked
+* the translation is appended to the correct file, not overwritten
+* new terms have been added to the terminology table
+* output paths and append behavior follow the root `CLAUDE.md`
 * the final response reports what was created or updated
+
+## Interaction Style
+
+Prefer:
+
+* faithful paragraph-by-paragraph translation
+* consistent terminology
+* clear alignment between original and translation
+* marking uncertainty when present
+
+Avoid:
+
+* adding interpretation or commentary
+* skipping paragraphs
+* mixing deep reading analysis into translation
+* creating separate translation files for different sections of the same paper
+* overwriting existing translations without explicit user request
+
+If the user asks for deep analysis of the translated content, suggest using `paper-deep-reading` instead.
