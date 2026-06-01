@@ -1,4 +1,4 @@
-# Claude Code Research Skills Workspace
+# Claude Paper Workspace
 
 这是一个面向学术研究、论文阅读、文献调研和技术排错记录的 Claude Code 工作区。
 
@@ -47,9 +47,7 @@
 │   │       ├── terminology.md
 │   │       ├── translation-notes.md
 │   │       ├── deep-reading.md
-│   │       ├── qa.md
-│   │       ├── experiment-analysis.md
-│   │       └── research-ideas.md
+│   │       └── qa.md
 │   └── sessions/
 │       └── <session-slug>.md
 ├── watch/
@@ -80,6 +78,7 @@
     └── tools/
 ```
 
+注意本项目的所有skill中只定义了提示词和思考流程，不包含任何和输出路径有关的内容，所有的输出路径等都统一定义在CLAUDE.md下，可以自行修改。
 ---
 
 ## 3. 目录说明
@@ -151,8 +150,6 @@ terminology.md
 translation-notes.md
 deep-reading.md
 qa.md
-experiment-analysis.md
-research-ideas.md
 ```
 
 示例：
@@ -226,11 +223,10 @@ prompts/watch-prompts.md
 例如：
 
 ```text
-templates/field-survey.md
-templates/translation-batch.md
-templates/deep-reading.md
-templates/session-note.md
+templates/paper-note.md
 ```
+
+当前 `templates/paper-note.md` 是 `paper-deep-reading` 输出 `deep-reading.md` 时使用的标准模板。
 
 ---
 
@@ -397,9 +393,9 @@ commands/*.md 负责短命令入口。
 ```text
 ./note/papers/<paper-slug>/deep-reading.md
 ./note/papers/<paper-slug>/qa.md
-./note/papers/<paper-slug>/experiment-analysis.md
-./note/papers/<paper-slug>/research-ideas.md
 ```
+
+`deep-reading.md` 的输出结构严格遵循 `./templates/paper-note.md` 模板。
 
 文件按需创建，不会在一次 deep reading 中默认生成所有文件。
 
@@ -566,9 +562,9 @@ translation-notes.md
 ```text
 deep-reading.md
 qa.md
-experiment-analysis.md
-research-ideas.md
 ```
+
+`deep-reading.md` 严格遵循 `./templates/paper-note.md` 模板。
 
 ### 领域调研通常只会创建或更新：
 
@@ -593,8 +589,6 @@ open-problems.md
 translation.md
 deep-reading.md
 qa.md
-research-ideas.md
-experiment-analysis.md
 ```
 
 例如，同一篇论文的多个翻译批次都应追加到：

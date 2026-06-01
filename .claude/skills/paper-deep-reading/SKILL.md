@@ -43,13 +43,17 @@ Create only the files needed for the current deep reading task. Do not pre-creat
 
 1. Do not merely summarize the paper.
 2. Reconstruct the paper's problem definition, method mechanism, assumptions, and experimental logic.
-3. Distinguish the paper's explicit claims from your own analysis.
+3. Strictly distinguish three levels of claims:
+   - **作者明确写出的内容**：paper explicitly states — cite the specific section, figure, table, or equation.
+   - **根据论文可合理推断的内容**：reasonable inference from the paper — clearly mark as inference and explain the reasoning.
+   - **无法确定的内容**：neither stated nor reasonably inferable — explicitly tell the user this is uncertain or cannot be concluded. Do not guess.
 4. Use concrete evidence from the paper when possible, such as sections, figures, tables, equations, or paragraphs.
 5. Identify limitations, hidden assumptions, possible failure cases, and open questions.
 6. Preserve important English technical terms when appropriate.
-7. If the available material is incomplete or only abstract-level, say so clearly.
-8. Do not hallucinate details that are not present in the paper.
-9. Use Chinese for explanation unless the user asks otherwise.
+7. If the available material is incomplete or only abstract-level, say so clearly and limit conclusions accordingly.
+8. Do not hallucinate details that are not present in the paper. If the paper does not provide enough information to answer a question, state that clearly rather than fabricating an answer.
+9. When in doubt, err on the side of saying "这一点论文未明确说明，无法确定" rather than over-interpreting.
+10. Use Chinese for explanation unless the user asks otherwise.
 
 ## Workflow
 
@@ -119,18 +123,6 @@ Separate:
 
 Be careful not to overstate novelty.
 
-Useful structure:
-
-```markdown
-## Claimed Contributions vs. Actual Contributions
-
-| Type | Paper's claim | My analysis |
-|---|---|---|
-| Method | ... | ... |
-| Experiment | ... | ... |
-| Concept | ... | ... |
-```
-
 ### Step 5: Explain the method mechanism
 
 Go beyond surface-level summary.
@@ -165,15 +157,6 @@ Identify assumptions such as:
 * evaluation assumptions
 * scalability assumptions
 * simulation-to-real assumptions
-
-Useful structure:
-
-```markdown
-## Key Assumptions
-
-| Assumption | Where it appears | Why it matters | Risk |
-|---|---|---|---|
-```
 
 This is one of the most important parts of deep reading.
 
@@ -232,23 +215,7 @@ Do not compare against papers that have not been read or verified unless clearly
 
 If the user asks specific questions, answer them directly.
 
-For each question, use a structure like:
-
-```markdown
-## Question: <user question>
-
-### Short Answer
-
-### Detailed Analysis
-
-### Evidence from Paper
-
-### My Interpretation
-
-### Remaining Uncertainty
-```
-
-This helps distinguish paper evidence from interpretation.
+For each question, include a short answer, detailed analysis, evidence from the paper, your interpretation, and remaining uncertainty. This helps distinguish paper evidence from interpretation.
 
 ### Step 11: Generate research ideas when useful
 
@@ -265,58 +232,9 @@ Each idea should include:
 
 Avoid vague ideas.
 
-Useful structure:
+## Output
 
-```markdown
-## Possible Research Ideas
-
-| Idea | Motivation | How to test | Risk |
-|---|---|---|---|
-```
-
-## Recommended Deep Reading Structure
-
-For a full-paper deep reading, use this structure unless the user requests otherwise:
-
-```markdown
-# Deep Reading: <Paper Title>
-
-## 1. Paper Metadata
-
-## 2. One-sentence Summary
-
-## 3. Problem Definition
-
-## 4. Claimed Contributions vs. Actual Contributions
-
-## 5. Method Mechanism
-
-## 6. Key Assumptions
-
-## 7. Experiment Analysis
-
-## 8. Limitations and Failure Cases
-
-## 9. Comparison With Related Work
-
-## 10. Deep Questions and Answers
-
-## 11. Possible Research Ideas
-
-## 12. What I Should Read Next
-
-## 13. Open Questions
-
-## 14. Final Assessment
-```
-
-Adjust this structure based on the user's actual question.
-
-If the user only asks about experiments, focus on experiment analysis.
-
-If the user only asks about Method, focus on mechanism and assumptions.
-
-If the user asks multiple questions, prioritize direct Q&A.
+All output rules (save path, file naming, output structure, append behavior) are defined in the root `CLAUDE.md`. The output must follow the structure in `./templates/paper-note.md` as specified by `CLAUDE.md`. Do not define independent output paths or formats inside this skill.
 
 ## Quality Requirements
 
@@ -327,10 +245,14 @@ Before finishing, ensure that:
 * the method mechanism is explained
 * key assumptions are identified
 * experiments are evaluated against the claims
+* the three evidence levels are clearly distinguished:
+  - what the paper explicitly states (with section/figure/table citations)
+  - what can be reasonably inferred from the paper (marked as inference)
+  - what is uncertain or cannot be concluded (stated explicitly to the user)
 * paper claims and your interpretation are clearly separated
 * limitations and failure cases are discussed
 * the user's specific questions are answered
-* unverified details are not hallucinated
+* unverified details are not hallucinated — if the paper does not provide enough information, say so
 * output paths and append behavior follow the root `CLAUDE.md`
 * the final response reports what was created or updated
 

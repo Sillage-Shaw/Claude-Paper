@@ -50,9 +50,7 @@ Use the following directory layout:
 │           ├── terminology.md
 │           ├── translation-notes.md
 │           ├── deep-reading.md
-│           ├── qa.md
-│           ├── experiment-analysis.md
-│           └── research-ideas.md
+│           └── qa.md
 ├── watch/
 │   └── arxiv/
 │       └── <field-slug>/
@@ -135,11 +133,11 @@ Common files:
 ./note/papers/<paper-slug>/translation-notes.md
 ./note/papers/<paper-slug>/deep-reading.md
 ./note/papers/<paper-slug>/qa.md
-./note/papers/<paper-slug>/experiment-analysis.md
-./note/papers/<paper-slug>/research-ideas.md
 ```
 
 Use this path for outputs from `academic-translation` and `paper-deep-reading`.
+
+The `deep-reading.md` output must follow the structure defined in `./templates/paper-note.md`.
 
 Examples:
 
@@ -147,7 +145,6 @@ Examples:
 ./note/papers/act/translation.md
 ./note/papers/act/deep-reading.md
 ./note/papers/openvla/terminology.md
-./note/papers/diffusion-policy/research-ideas.md
 ```
 
 ---
@@ -177,7 +174,7 @@ Use this map to decide where each skill should save files.
 | ---------------------- | -------------------------------- | ------------------------------------------------------------------------- |
 | `field-survey`         | `./note/fields/<field-slug>/`    | `survey.md`, `paper-table.md`, `reading-roadmap.md`, `open-problems.md`   |
 | `academic-translation` | `./note/papers/<paper-slug>/`    | `translation.md`, `terminology.md`, `translation-notes.md`                |
-| `paper-deep-reading`   | `./note/papers/<paper-slug>/`    | `deep-reading.md`, `qa.md`, `experiment-analysis.md`, `research-ideas.md` |
+| `paper-deep-reading`   | `./note/papers/<paper-slug>/`    | `deep-reading.md`, `qa.md`                                                |
 | `arxiv-watch`          | `./watch/arxiv/<field-slug>/`    | `<date>.md`                                                               |
 | `paper-search`         | usually `./papers/<field-slug>/` | downloaded PDF files                                                      |
 
@@ -199,8 +196,8 @@ Examples:
 
 * `paper-deep-reading` normally creates or updates:
 
-  * `./note/papers/<paper-slug>/deep-reading.md`
-  * optionally `qa.md`, `experiment-analysis.md`, or `research-ideas.md` when the user asks for those analyses
+  * `./note/papers/<paper-slug>/deep-reading.md` — must follow the structure defined in `./templates/paper-note.md`
+  * optionally `./note/papers/<paper-slug>/qa.md` when the user asks specific deep questions
 
 * `field-survey` normally creates or updates:
 
@@ -225,8 +222,6 @@ Prefer append mode for:
 translation.md
 deep-reading.md
 qa.md
-research-ideas.md
-experiment-analysis.md
 ```
 
 ### 6.1 Translation append rule
