@@ -1,0 +1,18 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Claude Code local settings (may contain tokens)
+
+
+# IDE
+.vscode/settings.json
+
+# papers
+./papers/
+
+# notes
+
+./notes/
+
