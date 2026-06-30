@@ -9,16 +9,16 @@ Search, download, and read academic papers via the `paper-search` CLI.
 
 ## CLI Usage
 
-All commands run via:
+All commands run via (run from the project root):
 ```bash
-uv run --directory /home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/paper-search-mcp paper-search <command> [args]
+uv run --directory .claude/tools/paper-search-mcp paper-search <command> [args]
 ```
 
-Replace `/home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/paper-search-mcp` with the absolute path to your clone of this repository.
+The path `.claude/tools/paper-search-mcp` is relative to the project root. If the directory is missing, follow `INSTALL.md` (at the project root) to install the tool first.
 
 ### Search
 ```bash
-uv run --directory /home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/paper-search-mcp paper-search search "<query>" -n <max_per_source> -s <sources> -y <year>
+uv run --directory .claude/tools/paper-search-mcp paper-search search "<query>" -n <max_per_source> -s <sources> -y <year>
 ```
 - `-n`: results per source (default: 5)
 - `-s`: comma-separated sources or "all" (default: all)
@@ -28,17 +28,17 @@ For speed, prefer targeted sources (`-s arxiv,semantic,crossref`) over "all" unl
 
 ### Download PDF
 ```bash
-uv run --directory /home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/paper-search-mcp paper-search download <source> <paper_id> [-o ./downloads]
+uv run --directory .claude/tools/paper-search-mcp paper-search download <source> <paper_id> [-o ./downloads]
 ```
 
 ### Read (extract text)
 ```bash
-uv run --directory /home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/paper-search-mcp paper-search read <source> <paper_id> [-o ./downloads]
+uv run --directory .claude/tools/paper-search-mcp paper-search read <source> <paper_id> [-o ./downloads]
 ```
 
 ### List sources
 ```bash
-uv run --directory /home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/paper-search-mcp paper-search sources
+uv run --directory .claude/tools/paper-search-mcp paper-search sources
 ```
 
 ## Output
@@ -49,7 +49,7 @@ uv run --directory /home/shaw/VSCodeProjects/Claude-Code-Skills/.claude/tools/pa
 
 arxiv, pubmed, biorxiv, medrxiv, google_scholar, iacr, semantic, crossref, openalex, pmc, core, europepmc, dblp, openaire, citeseerx, doaj, base, zenodo, hal, ssrn, unpaywall
 
-Optional (env vars): ieee (`IEEE_API_KEY`), acm (`ACM_API_KEY`)
+Optional (env vars): ieee (`PAPER_SEARCH_MCP_IEEE_API_KEY`), acm (`PAPER_SEARCH_MCP_ACM_API_KEY`)
 
 ## Workflow
 

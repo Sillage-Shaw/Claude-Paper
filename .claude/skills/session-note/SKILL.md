@@ -1,7 +1,7 @@
 ---
 name: session-note
 description: "Use this skill when the user wants to turn an AI interaction, debugging process, environment setup, tool installation, configuration process, or troubleshooting session into a concise reusable Markdown note. This skill extracts symptoms, errors, causes, failed attempts, final solution, verification steps, and lessons learned. Follow the root CLAUDE.md for all output paths and file rules."
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Session Note Skill
 

@@ -4,6 +4,7 @@
 !.env.example
 
 # Claude Code local settings (may contain tokens)
+.claude/settings.local.json
 
 
 # IDE
@@ -12,7 +13,9 @@
 # papers
 ./papers/
 
-# notes
+# note
+./note/
 
-./notes/
+# vendored tools (cloned upstream repos, e.g. paper-search-mcp)
+.claude/tools/
 

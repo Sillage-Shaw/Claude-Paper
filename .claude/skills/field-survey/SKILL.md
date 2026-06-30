@@ -1,8 +1,7 @@
 ---
-
 name: field-survey
 description: "Use this skill when the user asks for a literature survey, field survey, research overview, 技术调研, 领域综述, literature map, research landscape, classic papers, SOTA papers, trends, open problems, representative works, or reading roadmap in a specific academic or technical field. This skill should use paper-search when available and follow the root CLAUDE.md for all output paths."
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Field Survey Skill
 

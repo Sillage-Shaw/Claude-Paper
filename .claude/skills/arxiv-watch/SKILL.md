@@ -1,8 +1,7 @@
 ---
-
 name: arxiv-watch
 description: "Use this skill when the user wants to monitor, search, track, filter, or summarize recent arXiv papers in a specific academic field. This skill focuses on recent-paper discovery, relevance filtering, deduplication, concise summaries, reading priority, and follow-up recommendations. Follow the root CLAUDE.md for all output paths and file rules."
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # ArXiv Watch Skill
 

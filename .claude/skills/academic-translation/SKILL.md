@@ -1,7 +1,7 @@
 ---
 name: academic-translation
 description: "Use this skill when the user wants to strictly translate academic papers paragraph by paragraph. This skill focuses on faithful, accurate, paragraph-by-paragraph translation while maintaining terminology consistency, preserving formulas, citations, figure/table numbers, and technical acronyms. Follow the root CLAUDE.md for all output paths and file rules."
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Academic Translation Skill
 

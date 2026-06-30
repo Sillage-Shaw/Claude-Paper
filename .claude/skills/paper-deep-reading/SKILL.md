@@ -1,8 +1,7 @@
 ---
-
 name: paper-deep-reading
 description: "Use this skill when the user wants to deeply read, understand, analyze, critique, or ask advanced questions about a specific academic paper. This skill goes beyond summarization by reconstructing the paper's problem definition, assumptions, method mechanism, experimental logic, limitations, failure cases, and possible research extensions. Follow the root CLAUDE.md for all output paths and append rules."
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Paper Deep Reading Skill
 
