@@ -1,0 +1,73 @@
+{
+  "skill_name": "knowledge-transfer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "扫描文献库，看看有哪些论文和领域内容可以沉淀到 D:\\Obsidian 知识库。列出完整的沉淀计划。",
+      "expected_output": "一份结构化的沉淀计划，包含：待创建 Source Notes 列表、待创建 Knowledge Notes 列表（按类型分类）、已存在笔记（跳过）、风险提示。",
+      "files": [],
+      "assertions": [
+        {
+          "name": "covers_all_5_papers",
+          "description": "计划应覆盖全部 5 篇论文：smolvla, rt2, pi0, pi0.5, shao2025-vla-survey"
+        },
+        {
+          "name": "separates_source_and_knowledge",
+          "description": "计划应区分 Source Notes 和 Knowledge Notes 两部分"
+        },
+        {
+          "name": "correct_target_paths",
+          "description": "Source 目标路径应为 40-Sources/Literature/<field-slug>/，Knowledge 目标路径应为 30-Knowledge/"
+        },
+        {
+          "name": "checks_existing_content",
+          "description": "计划应检查 D:\\Obsidian 中是否已有相关笔记"
+        },
+        {
+          "name": "chinese_output",
+          "description": "输出应为中文（用户的主要语言）"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "把 smolvla 的论文笔记沉淀到 D:\\Obsidian 知识库。先从 deep-reading.md、terminology.md 中提取信息创建 Source 笔记，再提取可沉淀的 Knowledge 概念。",
+      "expected_output": "1) 在 40-Sources/Literature/vla/ 创建 Source 笔记；2) 在 30-Knowledge/ 创建 Atomic/Claim/Question 笔记；3) 笔记包含正确的 YAML frontmatter（仅 created, status, type）；4) 使用 Obsidian wikilinks；5) Knowledge 笔记标记为 status: review",
+      "files": [],
+      "assertions": [
+        {
+          "name": "source_note_created",
+          "description": "在 40-Sources/Literature/ 创建了 Source 笔记"
+        },
+        {
+          "name": "correct_frontmatter",
+          "description": "YAML frontmatter 仅包含 created, status, type 三个字段"
+        },
+        {
+          "name": "source_note_follows_template",
+          "description": "Source 笔记包含模板中的关键小节：基本信息、一句话总结、核心问题、主要内容、主要结论、局限性、可沉淀到 Knowledge 的内容"
+        },
+        {
+          "name": "knowledge_notes_status_review",
+          "description": "Knowledge 笔记的 status 应设为 review"
+        },
+        {
+          "name": "wikilinks_to_source",
+          "description": "Knowledge 笔记应使用 wikilinks 链接回 Source 笔记"
+        },
+        {
+          "name": "correct_naming_convention",
+          "description": "Source 笔记命名为 Paper - YYYY - Title 格式，Claim 笔记命名为 Claim - ... 格式"
+        },
+        {
+          "name": "no_fabricated_info",
+          "description": "缺失信息应写待补充，不应编造"
+        },
+        {
+          "name": "knowledge_types_varied",
+          "description": "应创建多种类型的 Knowledge 笔记（atomic, claim, question 中至少两种）"
+        }
+      ]
+    }
+  ]
+}

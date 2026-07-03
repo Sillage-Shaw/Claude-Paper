@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "skill_name": "knowledge-transfer",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-07-03T08:22:01Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 0,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 87.8,
+        "tokens": 83286,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "covers_all_5_papers",
+          "passed": true,
+          "evidence": "Plan explicitly lists all 5 papers: smolvla, shao2025-vla-survey, rt2, pi0, pi0.5 in Source Notes section"
+        },
+        {
+          "text": "separates_source_and_knowledge",
+          "passed": true,
+          "evidence": "Plan has section \u4e8c for Source Notes and section \u4e09 for Knowledge Notes, clearly separated"
+        },
+        {
+          "text": "correct_target_paths",
+          "passed": true,
+          "evidence": "Source paths use 40-Sources/Literature/vla/, Knowledge paths use 30-Knowledge/Atomic/, Claim/, Question/, Wiki/, MOC/"
+        },
+        {
+          "text": "checks_existing_content",
+          "passed": true,
+          "evidence": "Target vault status section explicitly checks all relevant directories and reports empty"
+        },
+        {
+          "text": "chinese_output",
+          "passed": true,
+          "evidence": "Entire plan is written in Chinese with English technical terms preserved"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 0,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 221.0,
+        "tokens": 75693,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "source_note_created",
+          "passed": true,
+          "evidence": "Paper - 2025 - SmolVLA.md created at D:\\Obsidian\\40-Sources\\Literature\\vla\\"
+        },
+        {
+          "text": "correct_frontmatter",
+          "passed": true,
+          "evidence": "YAML contains only created: 2026-07-03, status: working, type: source - exactly 3 allowed fields"
+        },
+        {
+          "text": "source_note_follows_template",
+          "passed": true,
+          "evidence": "Contains all required sections: \u57fa\u672c\u4fe1\u606f, \u4e00\u53e5\u8bdd\u603b\u7ed3, \u6838\u5fc3\u95ee\u9898, \u4e3b\u8981\u5185\u5bb9, \u4e3b\u8981\u7ed3\u8bba, \u5c40\u9650\u6027"
+        },
+        {
+          "text": "knowledge_notes_status_review",
+          "passed": true,
+          "evidence": "Claim and Atomic notes all use status: review; Source uses status: working; MOC uses status: working"
+        },
+        {
+          "text": "wikilinks_to_source",
+          "passed": true,
+          "evidence": "Claim note uses [[Paper - 2025 - SmolVLA]] with specific section/table references; Atomic note uses wikilinks"
+        },
+        {
+          "text": "correct_naming_convention",
+          "passed": true,
+          "evidence": "Paper - 2025 - SmolVLA, Claim - ..., Question - ..., MOC - VLA all follow naming rules"
+        },
+        {
+          "text": "no_fabricated_info",
+          "passed": true,
+          "evidence": "All data points reference specific tables (Table 2, 3, 10); limitations honestly stated"
+        },
+        {
+          "text": "knowledge_types_varied",
+          "passed": true,
+          "evidence": "Created Atomic (5), Claim (4), Question (2), MOC (1) - four distinct Knowledge types"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 0,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 141.4,
+        "tokens": 137418,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "covers_all_5_papers",
+          "passed": true,
+          "evidence": "Plan lists all 5 deep-read papers: RT-2, pi0, pi0.5, SmolVLA, Shao VLA Survey"
+        },
+        {
+          "text": "separates_source_and_knowledge",
+          "passed": true,
+          "evidence": "Clearly defined phases: Phase 1 Source notes, Phase 2 Knowledge precipitation, separated in document structure"
+        },
+        {
+          "text": "correct_target_paths",
+          "passed": true,
+          "evidence": "Uses 40 Sources/Literature/ for Source notes, 30 Knowledge/ for knowledge notes"
+        },
+        {
+          "text": "checks_existing_content",
+          "passed": true,
+          "evidence": "Plan notes target vault status and identifies all as new creations"
+        },
+        {
+          "text": "chinese_output",
+          "passed": true,
+          "evidence": "Plan is written in Chinese"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 0,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 6,
+        "failed": 2,
+        "total": 8,
+        "time_seconds": 243.6,
+        "tokens": 55404,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "source_note_created",
+          "passed": true,
+          "evidence": "Paper - 2025 - SmolVLA.md created at D:\\Obsidian\\40-Sources\\Literature\\"
+        },
+        {
+          "text": "correct_frontmatter",
+          "passed": true,
+          "evidence": "YAML uses only created, status, type fields as verified in manifest"
+        },
+        {
+          "text": "source_note_follows_template",
+          "passed": true,
+          "evidence": "Follows Source Ingest Workflow template structure"
+        },
+        {
+          "text": "knowledge_notes_status_review",
+          "passed": false,
+          "evidence": "Without-skill agent used status: working for Knowledge notes instead of status: review. While working is valid per vault rules, the assertion requires review for AI-generated content."
+        },
+        {
+          "text": "wikilinks_to_source",
+          "passed": false,
+          "evidence": "Claim note evidence section references 'Table 2' without wikilinks like [[Paper - 2025 - SmolVLA]]."
+        },
+        {
+          "text": "correct_naming_convention",
+          "passed": true,
+          "evidence": "Paper - 2025 - SmolVLA, Claim - ..., Question - ... all follow naming conventions"
+        },
+        {
+          "text": "no_fabricated_info",
+          "passed": true,
+          "evidence": "Data cited from specific tables; no fabricated claims detected"
+        },
+        {
+          "text": "knowledge_types_varied",
+          "passed": true,
+          "evidence": "Created Atomic (4 new), Claim (5), Question (2) - three distinct Knowledge types"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 154.4,
+        "stddev": 94.1866,
+        "min": 87.8,
+        "max": 221.0
+      },
+      "tokens": {
+        "mean": 79489.5,
+        "stddev": 5369.0618,
+        "min": 75693,
+        "max": 83286
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.875,
+        "stddev": 0.1768,
+        "min": 0.75,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 192.5,
+        "stddev": 72.2663,
+        "min": 141.4,
+        "max": 243.6
+      },
+      "tokens": {
+        "mean": 96411.0,
+        "stddev": 57992.6556,
+        "min": 55404,
+        "max": 137418
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.12",
+      "time_seconds": "-38.1",
+      "tokens": "-16922"
+    }
+  },
+  "notes": []
+}

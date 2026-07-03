@@ -1,0 +1,58 @@
+============================================================
+Literature Vault Scan Summary
+Scan Date: 2026-07-03
+Source: D:\Development\Claude-Paper
+Target: D:\Obsidian
+============================================================
+
+SOURCE VAULT INVENTORY
+=====================
+Papers with deep-reading: 5
+  - smolvla (2025, SmolVLA)
+  - shao2025-vla-survey (2025, VLA Survey)
+  - rt2 (2023, RT-2)
+  - pi0 (2024, pi0)
+  - pi0.5 (2025, pi0.5)
+
+Papers with translation: 5 (same as above)
+Papers with terminology: 4 (smolvla, shao, rt2, pi0.5)
+
+PDFs downloaded: 11
+  papers/vla/:
+    smolvla.pdf, shao2025-vla-survey.pdf, rt2.pdf, oxe.pdf,
+    diffusion-policy.pdf, act.pdf, pi0.pdf, pi0.5.pdf,
+    fast.pdf, libero.pdf, benchmark-audit.pdf
+
+Field-level content: 1 (vla)
+  note/fields/vla/survey.md
+  note/fields/vla/paper-table.md
+  note/fields/vla/reading-roadmap.md
+
+TARGET VAULT STATUS
+===================
+40-Sources/Literature/ : EMPTY
+30-Knowledge/Atomic/   : EMPTY
+30-Knowledge/Claim/    : EMPTY
+30-Knowledge/Question/ : EMPTY
+30-Knowledge/Wiki/     : EMPTY
+30-Knowledge/MOC/      : EMPTY
+
+TRANSFER CANDIDATES SUMMARY
+===========================
+Source Notes to create:      5
+Atomic candidates:           15
+Claim candidates:            12
+Question candidates:          8
+Wiki candidates:              4
+MOC candidates:               1
+Total Knowledge candidates:  40
+
+KEY FINDINGS
+============
+1. Target vault is completely fresh -- no existing notes to skip or update
+2. All 5 deep-read papers are in the VLA (Vision-Language-Action) domain
+3. The VLA domain has rich cross-paper synthesis opportunities (4 Wiki candidates)
+4. SmolVLA has the most extractable content (8 distinct Atomic/Claim candidates)
+5. The survey provides the taxonomy framework (Monolithic vs Hierarchical)
+6. 6 additional PDFs exist but lack deep-reading -- future transfer candidates
+7. No duplication risk -- target vault is empty

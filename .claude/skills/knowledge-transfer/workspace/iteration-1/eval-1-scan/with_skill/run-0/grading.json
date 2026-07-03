@@ -1,0 +1,15 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "expectations": [
+    {"text": "covers_all_5_papers", "passed": true, "evidence": "Plan explicitly lists all 5 papers: smolvla, shao2025-vla-survey, rt2, pi0, pi0.5 in Source Notes section"},
+    {"text": "separates_source_and_knowledge", "passed": true, "evidence": "Plan has section 二 for Source Notes and section 三 for Knowledge Notes, clearly separated"},
+    {"text": "correct_target_paths", "passed": true, "evidence": "Source paths use 40-Sources/Literature/vla/, Knowledge paths use 30-Knowledge/Atomic/, Claim/, Question/, Wiki/, MOC/"},
+    {"text": "checks_existing_content", "passed": true, "evidence": "Target vault status section explicitly checks all relevant directories and reports empty"},
+    {"text": "chinese_output", "passed": true, "evidence": "Entire plan is written in Chinese with English technical terms preserved"}
+  ]
+}

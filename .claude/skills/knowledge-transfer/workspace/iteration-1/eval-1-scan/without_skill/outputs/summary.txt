@@ -1,0 +1,130 @@
+======================================================================
+Claude-Paper 文献库扫描摘要
+======================================================================
+扫描日期：2026-07-03
+源库路径：D:\Development\Claude-Paper
+目标库路径：D:\Obsidian
+工具：纯通用能力扫描，未使用 knowledge-transfer skill
+======================================================================
+
+一、源库概况
+----------------------------------------------------------------------
+
+Claude-Paper 是一个围绕 VLA（Vision-Language-Action）领域的学术文献研究
+工作区，包含领域调研、论文翻译、深度阅读和术语管理。整体围绕 1 个研究领域、
+5 篇核心论文展开，内容质量较高、结构化程度好。
+
+二、发现的领域级内容（1 个领域）
+----------------------------------------------------------------------
+
+领域：VLA（Vision-Language-Action）
+目录：note/fields/vla/
+
+  1. survey.md (~730 行，中文)
+     - 极详细的 VLA 领域系统性调研
+     - 覆盖：核心概念、技术路线、论文分类（Survey/Foundational/Method/
+       SOTA/Benchmark）、方法分类、Benchmark/Dataset、趋势、开放问题、
+       推荐阅读顺序、检索记录
+     - 涉及 35+ 篇论文的系统梳理
+
+  2. paper-table.md (~115 行，中文)
+     - VLA 领域代表论文速查表
+     - 按 Survey/Foundational/Method/SOTA/Benchmark 分类
+     - 含已下载 PDF 清单（10 篇）
+
+  3. reading-roadmap.md (~220 行，中文)
+     - 4 阶段阅读路线图（Phase 1-4）
+     - 含每阶段推荐论文、预计时间、阅读重点、产出建议
+     - 含 Deep Reading 优先级推荐
+
+三、发现的论文级内容（5 篇论文）
+----------------------------------------------------------------------
+
+1. RT-2 (Google DeepMind, 2023) — note/papers/rt2/
+   - translation.md (~123 行)：Abstract + Introduction + Method + Experiments
+     + Limitations + Conclusions 完整翻译
+   - deep-reading.md (~227 行)：完整深度阅读笔记（方法拆解、实验验证、
+     假设局限、最终评价）
+   - terminology.md (~19 行)：术语表
+   状态：翻译和深度阅读已完成，内容成熟
+
+2. pi0 (Physical Intelligence, 2024) — note/papers/pi0/
+   - translation.md (~104 行)：Abstract + Introduction + Model + Training +
+     Experiments + Discussion 翻译
+   - deep-reading.md (~167 行)：完整深度阅读，含与 RT-2/OpenVLA 的系统对比
+   状态：翻译和深度阅读已完成
+
+3. pi0.5 (Physical Intelligence, 2025) — note/papers/pi0.5/
+   - translation.md (~145 行)：完整论文翻译
+   - deep-reading.md (~332 行)：极详细的深度阅读，含 pi0-vs-pi0.5 系统对比附录
+   - terminology.md (~22 行)：术语表
+   状态：最详细的论文笔记，含两代模型的演化分析
+
+4. SmolVLA (Hugging Face, 2025) — note/papers/smolvla/
+   - translation.md (~424 行)：全文翻译（所有章节含公式）
+   - deep-reading.md (~370 行)：深度阅读（最详细的方法拆解和消融分析）
+   - terminology.md (~101 行)：包含 101 个术语的术语表
+   - translation-notes.md (~64 行)：翻译过程中的歧义和笔误记录
+   状态：最完整的论文笔记，翻译+深度阅读+术语+翻译笔记俱全
+
+5. Shao et al. 2025 VLA Survey — note/papers/shao2025-vla-survey/
+   - translation.md (~315 行)：9 个章节的完整综述翻译
+   - deep-reading.md (~279 行)：对综述本身的元分析（分类框架评估、方法论证）
+   - terminology.md (~48 行)：术语表
+   - translation-notes.md (~44 行)：翻译决策记录
+   状态：对一篇综述做了翻译和元分析，层次独特
+
+四、发现的 PDF 论文（10 篇，均位于 papers/vla/）
+----------------------------------------------------------------------
+
+已深度加工（有对应 note）：
+  - rt2.pdf (15M)
+  - pi0.pdf (7.6M)
+  - pi0.5.pdf (16M)
+  - shao2025-vla-survey.pdf (25M)
+  - smolvla.pdf (未显示大小)
+
+未深度加工（仅有 PDF，无 note 目录）：
+  - act.pdf (5.2M, ACT: Action Chunking Transformer)
+  - diffusion-policy.pdf (6.0M, Diffusion Policy)
+  - fast.pdf (7.2M, FAST: Efficient Action Tokenization)
+  - libero.pdf (36M, LIBERO Benchmark)
+  - oxe.pdf (3.9M, Open X-Embodiment)
+  - benchmark-audit.pdf (1.4M, Benchmark Audit 2026)
+
+五、发现的模板和辅助内容
+----------------------------------------------------------------------
+
+  - templates/paper-note.md：deep-reading 输出模板
+  - prompts/：包含 survey.md, trans.md, deepread.md 等提示词模板
+  - CLAUDE.md：项目级规则文件（路径规范、输出规则等）
+  - README.md：项目说明和工作流文档
+  - INSTALL.md：paper-search 工具安装说明
+
+六、内容质量评估
+----------------------------------------------------------------------
+
+翻译质量：高（严格学术翻译，保留公式/引用/术语一致性）
+深度阅读质量：极高（含方法拆解、核心假设、实验可信度判断、主张-证据矩阵）
+领域调研质量：极高（35+ 论文系统梳理，含路线图和方法分类学）
+术语表质量：高（中英对照，含注释）
+内容一致性：高（所有笔记共享统一的 VLA 知识框架）
+
+七、与目标库的匹配度初判
+----------------------------------------------------------------------
+
+目标库 (D:\Obsidian) 采用 PAREO 系统：
+  - 40 Sources/Literature/ — 对应文献 Source 笔记
+  - 30 Knowledge/Atomic/ — 对应原子知识点
+  - 30 Knowledge/Wiki/ — 对应主题综述
+  - 30 Knowledge/MOC/ — 对应知识地图
+  - 30 Knowledge/Claim/ — 对应可验证判断
+  - 30 Knowledge/Question/ — 对应未解决问题
+
+Claude-Paper 的内容高度适配 Obsidian 的知识管理体系。每个论文的
+deep-reading.md 可转化为 Source 笔记 + 多个 Knowledge 笔记；
+survey.md 可转化为一个 Wiki + 一个 MOC。
+
+======================================================================
+总计可沉淀内容：1 个领域综述 + 5 篇深度论文笔记 + 10 个 PDF 文献
+======================================================================

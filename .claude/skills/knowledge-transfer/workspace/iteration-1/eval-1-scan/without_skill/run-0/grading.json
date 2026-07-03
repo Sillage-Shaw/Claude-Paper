@@ -1,0 +1,15 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "expectations": [
+    {"text": "covers_all_5_papers", "passed": true, "evidence": "Plan lists all 5 deep-read papers: RT-2, pi0, pi0.5, SmolVLA, Shao VLA Survey"},
+    {"text": "separates_source_and_knowledge", "passed": true, "evidence": "Clearly defined phases: Phase 1 Source notes, Phase 2 Knowledge precipitation, separated in document structure"},
+    {"text": "correct_target_paths", "passed": true, "evidence": "Uses 40 Sources/Literature/ for Source notes, 30 Knowledge/ for knowledge notes"},
+    {"text": "checks_existing_content", "passed": true, "evidence": "Plan notes target vault status and identifies all as new creations"},
+    {"text": "chinese_output", "passed": true, "evidence": "Plan is written in Chinese"}
+  ]
+}

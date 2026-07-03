@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 8,
+    "failed": 0,
+    "total": 8
+  },
+  "expectations": [
+    {"text": "source_note_created", "passed": true, "evidence": "Paper - 2025 - SmolVLA.md created at D:\\Obsidian\\40-Sources\\Literature\\vla\\"},
+    {"text": "correct_frontmatter", "passed": true, "evidence": "YAML contains only created: 2026-07-03, status: working, type: source - exactly 3 allowed fields"},
+    {"text": "source_note_follows_template", "passed": true, "evidence": "Contains all required sections: 基本信息, 一句话总结, 核心问题, 主要内容, 主要结论, 局限性"},
+    {"text": "knowledge_notes_status_review", "passed": true, "evidence": "Claim and Atomic notes all use status: review; Source uses status: working; MOC uses status: working"},
+    {"text": "wikilinks_to_source", "passed": true, "evidence": "Claim note uses [[Paper - 2025 - SmolVLA]] with specific section/table references; Atomic note uses wikilinks"},
+    {"text": "correct_naming_convention", "passed": true, "evidence": "Paper - 2025 - SmolVLA, Claim - ..., Question - ..., MOC - VLA all follow naming rules"},
+    {"text": "no_fabricated_info", "passed": true, "evidence": "All data points reference specific tables (Table 2, 3, 10); limitations honestly stated"},
+    {"text": "knowledge_types_varied", "passed": true, "evidence": "Created Atomic (5), Claim (4), Question (2), MOC (1) - four distinct Knowledge types"}
+  ]
+}

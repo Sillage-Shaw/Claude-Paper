@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "pass_rate": 0.75,
+    "passed": 6,
+    "failed": 2,
+    "total": 8
+  },
+  "expectations": [
+    {"text": "source_note_created", "passed": true, "evidence": "Paper - 2025 - SmolVLA.md created at D:\\Obsidian\\40-Sources\\Literature\\"},
+    {"text": "correct_frontmatter", "passed": true, "evidence": "YAML uses only created, status, type fields as verified in manifest"},
+    {"text": "source_note_follows_template", "passed": true, "evidence": "Follows Source Ingest Workflow template structure"},
+    {"text": "knowledge_notes_status_review", "passed": false, "evidence": "Without-skill agent used status: working for Knowledge notes instead of status: review. While working is valid per vault rules, the assertion requires review for AI-generated content."},
+    {"text": "wikilinks_to_source", "passed": false, "evidence": "Claim note evidence section references 'Table 2' without wikilinks like [[Paper - 2025 - SmolVLA]]."},
+    {"text": "correct_naming_convention", "passed": true, "evidence": "Paper - 2025 - SmolVLA, Claim - ..., Question - ... all follow naming conventions"},
+    {"text": "no_fabricated_info", "passed": true, "evidence": "Data cited from specific tables; no fabricated claims detected"},
+    {"text": "knowledge_types_varied", "passed": true, "evidence": "Created Atomic (4 new), Claim (5), Question (2) - three distinct Knowledge types"}
+  ]
+}

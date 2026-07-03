@@ -1,0 +1,6 @@
+{
+  "eval_id": 2,
+  "eval_name": "smolvla",
+  "prompt": "把 smolvla 的论文笔记沉淀到 D:\\Obsidian 知识库。先从 deep-reading.md、terminology.md 中提取信息创建 Source 笔记，再提取可沉淀的 Knowledge 概念。",
+  "assertions": []
+}
